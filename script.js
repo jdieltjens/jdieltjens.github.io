@@ -1,31 +1,79 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+// Load Navigation
+document.addEventListener('DOMContentLoaded', async () => {
+    const siteNav = document.getElementById('site-nav');
+    if (siteNav) {
+        try {
+            const response = await fetch('nav.html');
+            const navHTML = await response.text();
+            siteNav.innerHTML = navHTML;
+            
+            // Initialize navigation functionality after loading
+            initializeNavigation();
+            console.log('Navigation loaded and initialized');
+        } catch (error) {
+            console.error('Error loading navigation:', error);
+        }
+    }
+    
+    // Also load footer
+    const siteFooter = document.getElementById('site-footer');
+    if (siteFooter) {
+        try {
+            const response = await fetch('footer.html');
+            const footerHTML = await response.text();
+            siteFooter.innerHTML = footerHTML;
+            console.log('Footer loaded');
+        } catch (error) {
+            console.error('Error loading footer:', error);
+        }
     }
 });
+
+
+function initializeNavigation() {
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    console.log('Initializing navigation...', { hamburger, navMenu });
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            console.log('Hamburger clicked');
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            console.log('Menu active state:', navMenu.classList.contains('active'));
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    } else {
+        console.warn('Hamburger or nav menu not found', { hamburger, navMenu });
+    }
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        }
+    });
+}
+
+// Navbar Scroll Effect - Moved to initializeNavigation()
+
 
 // Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -257,3 +305,39 @@ function handleSwipe() {
 // Console Easter Egg
 console.log('%c🎹 Welcome to Piano Studio! 🎵', 'font-size: 20px; color: #8e44ad; font-weight: bold;');
 console.log('%cBuilt with passion for music education', 'font-size: 14px; color: #3498db;');
+
+
+// Load shared HTML into pages
+async function loadComponent(elementId, fileName) {
+    const container = document.getElementById(elementId);
+    if (!container) return;
+
+    try {
+        const res = await fetch(fileName);
+        if (res.ok) {
+            container.innerHTML = await res.text();
+            
+            // If it's the nav, initialize it
+            if (elementId === 'site-nav') {
+                initializeNavigation();
+            }
+        }
+    } catch (err) {
+        console.error(`Error loading ${fileName}:`, err);
+    }
+}
+
+function highlightActiveLink(container) {
+    const links = container.querySelectorAll('a');
+    links.forEach(link => {
+        // Check if the link's href matches the current URL
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
+}
+
+function loadFooter() {
+    loadComponent('site-footer', 'footer.html');
+}
+
