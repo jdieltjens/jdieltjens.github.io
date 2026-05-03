@@ -181,14 +181,14 @@ h1, h2, h3 {
 
 .hero-title {
     font-size: 4rem;
-    color: #2c3e50;
+    color: #ffffff;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #7f8c8d;
+    color: #ffffff;
     font-weight: 300;
 }
 

@@ -303,8 +303,8 @@ function handleSwipe() {
 }
 
 // Console Easter Egg
-console.log('%c🎹 Welcome to Piano Studio! 🎵', 'font-size: 20px; color: #8e44ad; font-weight: bold;');
-console.log('%cBuilt with passion for music education', 'font-size: 14px; color: #3498db;');
+console.log('%c🎹 Welcome to Praktijk Echo! 🎵', 'font-size: 20px; color: #8e44ad; font-weight: bold;');
+console.log('%cBuilt with passion for music', 'font-size: 14px; color: #3498db;');
 
 
 // Load shared HTML into pages
