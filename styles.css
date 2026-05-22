@@ -194,8 +194,8 @@ h1, h2, h3 {
 
 /* Page Headers */
 .page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: white;
+    color: #2c3e50;
     padding: 100px 0 60px;
     text-align: center;
     margin-bottom: 60px;
@@ -331,6 +331,7 @@ h1, h2, h3 {
 
 /* Therapy Content */
 .therapy-content {
+    background: white;
     padding: 60px 0;
 }
 
