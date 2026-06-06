@@ -903,6 +903,12 @@ h1, h2, h3 {
     color: #bdc3c7;
 }
 
+cite {
+    display: block;
+    margin-top: 24px;
+    color: white;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
