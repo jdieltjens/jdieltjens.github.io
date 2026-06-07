@@ -227,7 +227,19 @@ h1, h2, h3 {
     align-items: center;
 }
 
-.echo-image img,
+.echo-image {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center;     /* Centers the image vertically (if the div has height) */
+}
+
+.echo-image img  {
+    width: 61%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
 .teacher-image img {
     width: 60%;
     border-radius: 15px;
