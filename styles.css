@@ -233,7 +233,7 @@ h1, h2, h3 {
 .echo-image {
     display: flex;
     justify-content: center; /* Centers the image horizontally */
-    align-items: center;     /* Centers the image vertically (if the div has height) */
+    align-items: top;     /* Centers the image vertically (if the div has height) */
 }
 
 .echo-image img  {
