@@ -227,7 +227,7 @@ h1, h2, h3 {
     align-items: center;
 }
 
-.echo-image,
+.echo-image img,
 .teacher-image img {
     width: 60%;
     border-radius: 15px;
@@ -235,7 +235,7 @@ h1, h2, h3 {
     transition: transform 0.3s ease;
 }
 
-.echo-image,
+.echo-image img:hover,
 .teacher-image img:hover {
     transform: scale(1.05);
 }
@@ -246,7 +246,7 @@ h1, h2, h3 {
     margin-bottom: 1.5rem;
 }
 
-.echo-info,
+.echo-info p,
 .teacher-info p {
     margin-bottom: 1.5rem;
     color: #555;
