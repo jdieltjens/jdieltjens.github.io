@@ -272,8 +272,13 @@ h1, h2, h3 {
     margin-bottom: 1.5rem;
     color: #555;
     line-height: 1.8;
-    max-width: 600px;  /* Prevents the text from stretching too wide */
-    margin: 0 auto;    /* Centers the entire paragraph block horizontally */
+}
+
+.echo-intro {
+  max-width: 700px;    /* adjust to taste */
+  margin: 0 auto;      /* centers the block */
+  text-align: left;    /* keeps text left-aligned */
+  grid-column: 1 / -1; /* ensure it spans the grid if inside .echo-card */
 }
 
 .teacher-credentials {
