@@ -21,6 +21,8 @@ h1, h2, h3 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    gap: 2rem;
 }
 
 /* Video Background (Home Page Only) */
