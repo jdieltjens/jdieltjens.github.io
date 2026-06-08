@@ -1071,3 +1071,8 @@ cite {
         padding: 2rem 1.5rem;
     }
 }
+
+/*Reset link styling for copyright text*/
+footer a{
+    color: inherit;
+}
